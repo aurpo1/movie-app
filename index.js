@@ -82,7 +82,7 @@ app.get('/api/user/auth', auth, (req, res) => {
   res.status(200).json({
     _id: req.user._id,
     //role == 0 이면 일반 유저, role != 0 관리자
-    isAdmin: req.user.role == 0 ? false: true,
+    isAdmin: req.user.role === 0 ? false: true,
     isAuth: true,
     email: req.user.email,
     name: req.user.email,
