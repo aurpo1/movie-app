@@ -89,7 +89,7 @@ userSchema.statics.findByToken = function(token, cb) {
     var user = this;
     
     //토근을 복호화한다
-    jwt.verify(token, 'secertT', function(err, decoded) {
+    jwt.verify(token, 'secretT', function(err, decoded) {
         //유저 아이디를 이용해서 유저를 찾은 후에
         //클라이언트에서 가져온 token과 DB에 보관된 토큰이 일치하는지 확인
 
