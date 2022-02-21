@@ -40,7 +40,7 @@ function LoginPage(props) {
         }
       })
 
-    //backend로 보내기
+    //backend로 보내기 -> Redux를 안 쓰는 경우 밑의 코드가 있으면 됨
     //Axios.post('/api/user/login', body)
     //.then(response)
 
