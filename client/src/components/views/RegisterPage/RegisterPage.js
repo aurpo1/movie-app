@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { registerUser } from '../../../_actions/user_action';
 
+
 function RegisterPage(props) {
 
   const dispatch = useDispatch();
@@ -77,7 +78,7 @@ function RegisterPage(props) {
 
         <br />
         <button>
-          Login
+          Sigh Up
         </button>
       </form>
     </div>

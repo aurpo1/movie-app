@@ -102,4 +102,4 @@ userSchema.statics.findByToken = function(token, cb) {
 
 const User = mongoose.model('User', userSchema)
 
-module.exports = {User}  //다른데서도 유저 스키마 쓸 수 있게
+module.exports = { User }  //다른데서도 유저 스키마 쓸 수 있게
