@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { registerUser } from '../../../_actions/user_action';
+import Axios from 'axios';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 
 function RegisterPage(props) {
@@ -30,6 +32,8 @@ function RegisterPage(props) {
     setPW_confirm(event.currentTarget.value)
   }
 
+  let navigate = useNavigate();
+
   const onSubmitHandler = (event) => {
     event.preventDefault(); //페이지 refresh 막기 위함
 
@@ -46,7 +50,7 @@ function RegisterPage(props) {
     dispatch(registerUser(body))
       .then(response => {
         if(response.payload.success) {
-          props.history.push("/login")
+          navigate("/login")
         } else {  
           alert('Failed to sign up')
         }
