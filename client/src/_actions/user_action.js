@@ -26,3 +26,14 @@ export function registerUser(dataToSubmit) {
         payload: request
     }
 }
+
+export function auth() {
+    const request = axios.get('/api/user/auth')
+        .then(response => response.data)
+        
+    //reducer로 보내기
+    return { 
+        type: "AUTH_USER",
+        payload: request
+    }
+}
