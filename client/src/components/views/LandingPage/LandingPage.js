@@ -1,6 +1,5 @@
 import React, {useEffect} from 'react'
 import axios from 'axios';
-import { response } from 'express';
 import { Navigate, useNavigate } from 'react-router-dom';
 
 function LandingPage() {
