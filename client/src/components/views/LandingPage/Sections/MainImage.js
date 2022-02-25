@@ -11,15 +11,15 @@ function MainImage(props) {
         41%,rgba(0,0,0,0.65)
         100%),
         url('${props.image}'), #1c1c1c`,
-            height: '500px',
+            height: '600px',
             backgroundSize: '100%, cover',
             backgroundPosition: 'center, center',
             width: '100%',
             position: 'relative'   
         }}>
             <div>
-                <div style={{ position: 'absolute', maxWidth: '500px', bottom: '2rem', marginLeft: '2rem' }}>
-                    <h2 style={{ color: 'white' }}> {props.title} </h2>
+                <div style={{ position: 'absolute', maxWidth: '500px', bottom: '3rem', marginLeft: '3rem' }}>
+                    <h2 style={{ color: 'white', fontSize: '30px' }}> {props.title} </h2>
                     <p style={{ color: 'white', fontSize: '1rem' }}> {props.text} </p>
                 </div>           
             </div>

@@ -1,6 +1,6 @@
 // import { response } from 'express';
 import React, { useEffect, useState } from 'react';
-// import { FaCode } from "react-icons/fa";
+import { FaCode } from "react-icons/fa";
 import { API_URL, API_KEY, IMAGE_BASE_URL } from '../../Config';
 import MainImage from './Sections/MainImage';
 
@@ -19,8 +19,8 @@ function LandingPage() {
       console.log(response)
       //가져온 영화 API값을 state에 넣기
       setMovies([response.results])
-      setMainMovieImage([response.results[0]])
-      
+      setMainMovieImage(response.results[0])
+
     })
   }, [])
 
