@@ -1,39 +1,54 @@
-import React, {useEffect} from 'react'
-import axios from 'axios';
-import { Navigate, useNavigate } from 'react-router-dom';
+// import { response } from 'express';
+import React, { useEffect, useState } from 'react';
+// import { FaCode } from "react-icons/fa";
+import { API_URL, API_KEY, IMAGE_BASE_URL } from '../../Config';
+import MainImage from './Sections/MainImage';
+
 
 function LandingPage() {
 
+  const [Movies, setMovies] = useState([])
+  const [MainMovieImage, setMainMovieImage] = useState(null)
+
   useEffect(() => {
-    axios.get('/api/hello')
-    .then(response => console.log(response.data))
+    const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
+
+    fetch(endpoint)
+    .then(response => response.json())
+    .then(response => {
+      console.log(response)
+      //가져온 영화 API값을 state에 넣기
+      setMovies([response.results])
+      setMainMovieImage([response.results[0]])
+      
+    })
   }, [])
 
-  let navigate = useNavigate();
-
-
-  const onClickHandler = () => {
-    axios.get('/api/user/logout')
-    .then(response => {
-      if(response.data.success) {
-        navigate('/login')
-      } else{
-        alert("Failed to logout")
-      }
-    })
-  }
-
   return (
-    <div style={{
-      display: 'flex', justifyContent: 'center', alignItems: 'center',
-      width: '100%', height: '100vh'
-    }}>
-      <h2>시작 페이지</h2>
-      <button onClick = { onClickHandler } >
-        Logout 
-      </button>
+
+    <div style={{ width: '100%', margin: '0' }}>
+
+      {/*main image*/}      
+      { MainMovieImage && /*가져온게 있으면*/
+        <MainImage 
+          image={`${IMAGE_BASE_URL}w1280${MainMovieImage.backdrop_path}`}
+          title={MainMovieImage.original_title}
+          text={MainMovieImage.overview}
+        />
+      }
+      
+      <div style={{ width: '85%', margin: '1rem auto' }}>        
+        <h2> 최신 영화 </h2>
+        <hr />
+        {/*Movie grid cards */}
+      </div>
+
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <button> 더보기 </button>
+      </div>
     </div>
   )
 }
+
 
 export default LandingPage
